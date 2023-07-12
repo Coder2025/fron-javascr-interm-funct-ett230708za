@@ -19,20 +19,21 @@ let grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 //===========================================
-console.log('Opdr.1a');
-{
-    console.log(cumLaude());
-    function cumLaude(){
-        let amountCumLaude = 0;
-        for (let i= 0; i < grades.length; i++) {
-            if (grades[i] >= 8){
-                amountCumLaude++;
-            }
-        }
-        return amountCumLaude;
-    }
-}
-console.log('Eind Opdr.1a\n');
+// console.log('Opdr.1a');
+// console.log("// ---- Verwachte uitkomst: 6");
+// {
+//     console.log(cumLaude1());
+//     function cumLaude1(){
+//         let amountCumLaude1 = 0;
+//         for (let i= 0; i < grades.length; i++) {
+//             if (grades[i] >= 8){
+//                 amountCumLaude1++;
+//             }
+//         }
+//         return amountCumLaude1;
+//     }
+// }
+// console.log('Eind Opdr.1a\n');
 //======================================================================================================================
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
@@ -47,24 +48,63 @@ console.log('Eind Opdr.1a\n');
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 //===========================================
-console.log('Opdr.1b');
 {
-    console.log(cumLaude(grades));
-    console.log(cumLaude(grades = [6, 4, 5]));
-    console.log(cumLaude(grades = [8, 9, 4, 6, 10]));
+    console.log('Opdr.1b');
 
-    function cumLaude(arrGrades) {
-        let amountCumLaude = 0;
+    console.log("// ---- Verwachte uitkomsten:\n" +
+        "// cumLaude(grades) geeft 6\n" +
+        "// cumLaude([6, 4, 5]) geeft 0\n" +
+        "// cumLaude([8, 9, 4, 6, 10]) geeft 3");
+
+
+    function cumLaude2(arrGrades) {
+        console.log(arrGrades);
+        let amountCumLaude2 = 0;
         for (let i = 0; i < arrGrades.length; i++) {
+            // console.log(amountCumLaude2)
             if (grades[i] >= 8) {
-                amountCumLaude++;
+                amountCumLaude2++;
             }
         }
-        return amountCumLaude;
+        return amountCumLaude2;
     }
+
+    const diplomasOne = cumLaude2(grades);
+    const diplomasTwo = cumLaude2([6, 4, 5]);
+    const diplomasThree = cumLaude2([8, 9, 4, 6, 10]);
+
+    console.log(diplomasOne, diplomasTwo, diplomasThree);
+
+    console.log('Eind Opdr.1b\n');
 }
-console.log('Eind Opdr.1b\n');
 //======================================================================================================================
+
+function cumLaude(gradesArray) {
+    let count = 0;
+
+    for (let i = 0; i < gradesArray.length; i++) {
+        if (gradesArray[i] >= 8) {
+            count = count + 1;
+            // dit mag ook: cumLaude += 1;
+            // dit mag ook: cumLaude++;
+        }
+    }
+
+    return count;
+}
+
+const diplomasOne = cumLaude(grades);
+const diplomasTwo = cumLaude([6, 4, 5]);
+const diplomasThree = cumLaude([8, 9, 4, 6, 10]);
+
+console.log(diplomasOne, diplomasTwo, diplomasThree);
+
+
+
+
+
+
+
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -79,6 +119,24 @@ console.log('Eind Opdr.1b\n');
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+//===========================================
+// console.log('Opdr.2');
+// console.log("// ---- Verwachte uitkomst: 6.642857142857143");
+// {
+//     console.log(fncAvgGrades1(grades));
+//     console.log(fncAvgGrades1(grades = [6, 4, 5]));
+//     console.log(fncAvgGrades1(grades = [8, 9, 4, 6, 10]));
+//
+//     function fncAvgGrades1(arrGrades) {
+//         let intTotGrades = 0;
+//         for (let i = 0; i < arrGrades.length; i++) {
+//             intTotGrades = intTotGrades + grades[i];
+//         }
+//         return (intTotGrades / arrGrades.length);
+//     }
+// }
+// console.log('Eind Opdr.2\n');
+//======================================================================================================================
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde
@@ -96,7 +154,25 @@ console.log('Eind Opdr.1b\n');
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
-
+//===========================================
+// console.log('Opdr.2b');
+// console.log("/* 2c: Afronden op twee decimalen */");
+// {
+//     console.log(fncAvgGrades(grades));
+//     console.log(fncAvgGrades(grades = [6, 4, 5]));
+//     console.log(fncAvgGrades(grades = [8, 9, 4, 6, 10]));
+//
+//     function fncAvgGrades(arrGrades) {
+//         let intTotGrades = 0;
+//         for (let i = 0; i < arrGrades.length; i++) {
+//             intTotGrades = intTotGrades+grades[i];
+//         }
+//         let dblAvgGrades = (intTotGrades / arrGrades.length);
+//         return dblAvgGrades.toFixed(2);
+//     }
+// }
+// console.log('Eind Opdr.2b\n');
+//======================================================================================================================
 
 
 
@@ -111,7 +187,29 @@ console.log('Eind Opdr.1b\n');
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 9
-
+//===========================================
+// console.log('Opdr.3a+b');
+// console.log("// ---- Verwachte uitkomsten:\n" +
+//     "// highestGrade(grades) geeft 9\n" +
+//     "// highestGrade([6, 4, 5]) geeft 6\n" +
+//     "// highestGrade([8, 9, 4, 6, 10]) geeft 10");
+// {
+//     console.log(highestGrade(grades));
+//     console.log(highestGrade(grades = [6, 4, 5]));
+//     console.log(highestGrade(grades = [8, 9, 4, 6, 10]));
+//
+//     function highestGrade(arrGrades) {
+//         let intHighestGrade = 0;
+//         for (let i = 0; i < arrGrades.length; i++) {
+//             if (grades[i] > intHighestGrade){
+//                 intHighestGrade = grades[i]
+//             }
+//         }
+//         return intHighestGrade;
+//     }
+// }
+// console.log('Eind Opdr.3a+b\n');
+//======================================================================================================================
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer
